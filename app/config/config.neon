@@ -1,0 +1,28 @@
+# WARNING: it is CRITICAL that this file & directory are NOT accessible directly via a web browser!
+# https://nette.org/security-warning
+
+parameters:
+
+
+php:
+	date.timezone: Europe/Prague
+
+
+application:
+	errorPresenter: Error
+	mapping:
+		*: DevPortal\TomasBlatnyEu\*Module\Presenters\*Presenter
+
+
+extensions:
+	userNamespace: DevPortal\Utils\DI\UserNamespaceExtension
+
+
+session:
+	expiration: 14 days
+
+
+services:
+	router: DevPortal\TomasBlatnyEu\Routing\RouterFactory::createRouter
+
+	- DevPortal\TomasBlatnyEu\Components\IContactControlFactory
